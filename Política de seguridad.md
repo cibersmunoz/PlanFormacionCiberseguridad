@@ -327,3 +327,5 @@ Al finalizar la campaña de phishing simulada, se elaborará un informe detallad
 El informe será distribuido a los departamentos de IT, Recursos Humanos y la alta dirección para la toma de decisiones estratégicas.
 
 ---
+
+[Volver al Índice](./index.md)

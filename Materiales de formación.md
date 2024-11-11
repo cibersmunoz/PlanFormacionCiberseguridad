@@ -103,4 +103,5 @@ Los empleados participarán en simulaciones de ataques de ciberseguridad (como u
 La implementación efectiva de estos **Materiales de Formación en Ciberseguridad** garantizará que los empleados de **Shuprimiko Inc** no solo cumplan con las políticas de seguridad, sino que también adquieran las habilidades necesarias para enfrentar los desafíos que presentan las amenazas cibernéticas del día a día. Además, al utilizar una combinación de enfoques (teóricos, prácticos, presenciales y en línea), nos aseguramos de que la formación sea accesible, efectiva y aplicable en el entorno de trabajo.
 
 ---
+[Volver al Índice](./index.md)
 

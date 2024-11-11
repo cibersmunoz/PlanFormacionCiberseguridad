@@ -119,3 +119,5 @@ El **Plan de Evaluación** será revisado anualmente para asegurar su efectivida
 La implementación de un **Plan de Evaluación en Ciberseguridad** garantiza que Shuprimiko Inc no solo cumple con los requisitos normativos, sino que también mantiene un alto nivel de competencia en la protección de sus activos digitales. A través de un enfoque integral y sistemático, el plan asegura la mejora continua de nuestras capacidades de ciberseguridad.
 
 ---
+
+[Volver al Índice](./index.md)

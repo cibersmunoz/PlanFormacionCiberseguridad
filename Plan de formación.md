@@ -153,3 +153,5 @@ El **Plan de Formación** será revisado de forma **trimestral** para asegurar s
 El **Plan de Formación en Ciberseguridad** de Shuprimiko Inc es una herramienta clave para asegurar la protección de nuestros activos digitales. A través de una formación continua y adaptada a cada nivel de la organización, crearemos una cultura de ciberseguridad sólida que minimizará los riesgos y fortalecerá la resiliencia ante ciberamenazas.
 
 ---
+
+[Volver al Índice](./index.md)
