@@ -115,10 +115,10 @@ Para maximizar la efectividad de la formación, se utilizarán diversas metodolo
 
 | Actividad                                  | Público Objetivo        | Frecuencia      | Fecha de Inicio |
 |--------------------------------------------|-------------------------|-----------------|-----------------|
-| Fundamentos de Ciberseguridad              | Todos los empleados     | Anual           | Enero 2024      |
-| Talleres sobre Phishing                    | Departamentos Administrativos | Semestral  | Marzo 2024      |
-| DevSecOps y Codificación Segura            | Equipos de Desarrollo   | Trimestral      | Febrero 2024    |
-| Simulaciones de Respuesta a Incidentes     | IT y Seguridad          | Trimestral      | Abril 2024      |
+| Fundamentos de Ciberseguridad              | Todos los empleados     | Anual           | Enero 2025      |
+| Talleres sobre Phishing                    | Departamentos Administrativos | Semestral  | Marzo 2025      |
+| DevSecOps y Codificación Segura            | Equipos de Desarrollo   | Trimestral      | Febrero 2025    |
+| Simulaciones de Respuesta a Incidentes     | IT y Seguridad          | Trimestral      | Abril 2025      |
 | Evaluación de Conocimientos (LMS)          | Todos los empleados     | Mensual         | Permanente      |
 
 ---
