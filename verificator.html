@@ -86,7 +86,7 @@
 let rockyouList = [];
 
 function loadRockyouList() {
-    fetch('rockyou.txt')
+    fetch('https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt')
         .then(response => response.text())
         .then(data => {
             // Limpiamos el texto, eliminamos saltos de línea, los espacios intermedios y filtramos las cadenas vacías
