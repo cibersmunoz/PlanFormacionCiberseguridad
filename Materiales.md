@@ -87,11 +87,129 @@ Las presentaciones estarán diseñadas para ofrecer una visión general de cada 
 Se proporcionarán documentos escritos que los empleados podrán consultar en cualquier momento. Estos manuales incluirán procedimientos detallados para manejar incidentes de seguridad, gestionar contraseñas y proteger la información sensible.
 
 ### **5.3. Ejercicios Interactivos**
+
 Se diseñarán ejercicios prácticos basados en escenarios reales para poner a prueba el conocimiento de los empleados. Ejemplos de ejercicios incluyen:
 
 - Reconocimiento de correos electrónicos de phishing.
 - Ejercicio de configuración de contraseñas seguras.
 - Simulaciones de respuesta ante incidentes.
+
+#### **5.3.1 Juego Interactivo: ¿Qué Harías?**
+
+Para mejorar nuestra capacidad de respuesta ante posibles amenazas de ciberseguridad, participaremos en un juego interactivo llamado **"¿Qué Harías?"**. Este juego presenta varios escenarios reales que podrías enfrentar en tu día a día. A continuación, te pedimos que elijas la mejor opción para cada situación.
+
+---
+
+**Escenario 1: Correo Electrónico Sospechoso**  
+**Situación**: Recibes un correo electrónico que parece venir del departamento de IT de Shuprimiko Inc. Te informa que tu contraseña ha caducado y que debes cambiarla de inmediato haciendo clic en un enlace.
+
+**¿Qué harías?**
+- **A)** Haces clic en el enlace y cambias tu contraseña.
+- **B)** Ignoras el correo porque parece sospechoso.
+- **C)** Verificas la dirección del remitente y contactas al departamento de IT directamente para confirmar la autenticidad del correo.
+- **D)** Reenvías el correo a tus compañeros para advertirles.
+
+> **Respuesta correcta**: **C)**. Siempre es mejor verificar la autenticidad del correo con el remitente oficial antes de hacer clic en cualquier enlace sospechoso.
+
+---
+
+**Escenario 2: Dispositivo USB Desconocido**  
+**Situación**: Encuentras un dispositivo USB en el suelo de la oficina con la etiqueta "Proyecto Importante".
+
+**¿Qué harías?**
+- **A)** Lo conectas a tu ordenador para ver qué contiene.
+- **B)** Lo entregas al departamento de IT para que lo revisen.
+- **C)** Lo guardas en tu cajón por si alguien pregunta por él.
+- **D)** Lo tiras a la basura por precaución.
+
+> **Respuesta correcta**: **B)**. Nunca conectes un dispositivo USB desconocido a tu equipo. Podría contener malware. La mejor opción es entregarlo al equipo de IT para su análisis.
+
+---
+
+**Escenario 3: Solicitud de Información por Teléfono**  
+**Situación**: Recibes una llamada de alguien que dice ser del servicio técnico de tu proveedor de internet. Te pide tu nombre completo y tu número de identificación para "verificar" tu cuenta.
+
+**¿Qué harías?**
+- **A)** Proporcionas la información solicitada para resolver el problema rápidamente.
+- **B)** Le pides un número de contacto y llamas tú directamente al servicio técnico para verificar la autenticidad de la llamada.
+- **C)** Cuelgas inmediatamente, ya que parece una estafa.
+- **D)** Le das información falsa para ver si la llamada continúa.
+
+> **Respuesta correcta**: **B)**. Siempre verifica la autenticidad de las solicitudes de información personal, especialmente si no iniciaste la conversación.
+
+---
+
+**Escenario 4: Petición de Transferencia Urgente**  
+**Situación**: Recibes un correo electrónico del CEO de Shuprimiko Inc. solicitando una transferencia bancaria urgente a un nuevo proveedor. El mensaje te pide que lo realices inmediatamente para asegurar un negocio importante.
+
+**¿Qué harías?**
+- **A)** Realizas la transferencia de inmediato, ya que proviene del CEO.
+- **B)** Respondes al correo pidiendo confirmación adicional.
+- **C)** Verificas la solicitud con el CEO o con otro miembro de la dirección antes de proceder.
+- **D)** Ignoras el correo, ya que es probable que sea un intento de fraude.
+
+> **Respuesta correcta**: **C)**. Antes de realizar cualquier transferencia urgente solicitada por correo electrónico, es fundamental verificar la autenticidad de la solicitud mediante una confirmación adicional.
+
+---
+
+**Escenario 5: Actualización de Software**  
+**Situación**: Mientras navegas por internet, aparece una ventana emergente que dice que tu software antivirus está desactualizado y que debes descargar la última versión desde el enlace proporcionado.
+
+**¿Qué harías?**
+- **A)** Haces clic en el enlace para actualizar tu antivirus.
+- **B)** Cierras la ventana emergente y realizas una actualización desde el sitio oficial del antivirus.
+- **C)** Ignoras la advertencia, ya que no confías en actualizaciones inesperadas.
+- **D)** Apagas tu ordenador por si acaso se trata de un ataque.
+
+> **Respuesta correcta**: **B)**. Nunca actualices software desde ventanas emergentes. Siempre verifica y descarga actualizaciones directamente desde la página oficial del proveedor.
+
+---
+
+**Escenario 6: Mensaje en Redes Sociales**  
+**Situación**: Un colega de trabajo te envía un mensaje en LinkedIn con un enlace a un artículo interesante sobre las últimas tendencias en tu sector.
+
+**¿Qué harías?**
+- **A)** Haces clic en el enlace sin pensarlo, ya que proviene de un colega.
+- **B)** Le preguntas a tu colega por otros medios si realmente envió ese mensaje.
+- **C)** Escaneas el enlace con un servicio de análisis de URLs antes de abrirlo.
+- **D)** Bloqueas al colega en LinkedIn por seguridad.
+
+> **Respuesta correcta**: **B)** o **C)**. Incluso si el mensaje parece venir de una fuente confiable, es posible que la cuenta de tu colega haya sido comprometida. Verificar el enlace antes de hacer clic es una buena práctica.
+
+---
+
+Esperamos que este juego te ayude a mejorar tu capacidad para identificar y responder a posibles amenazas de ciberseguridad. ¡Gracias por participar!
+
+---
+### **5.3.2 Evaluador de Seguridad de Contraseña**
+
+En este ejercicio, podrás evaluar la seguridad de tus contraseñas utilizando un verificador interactivo. Introduce una contraseña y observa cómo se evalúa su fortaleza en función de varios criterios (longitud, uso de mayúsculas, números y caracteres especiales).
+
+# Verificador de Seguridad de Contraseña
+
+Este es el [Verificador de Seguridad de Contraseña](./verificator.html) que puedes usar para comprobar la fortaleza de tus contraseñas.
+
+### **5.3.3 Videojuego de Variantes de Dominio**
+
+Este es un juego en el que debes elegir el dominio correcto entre dos opciones. En cada nivel hay 10 etapas, y el objetivo es obtener una puntuación de al menos **80 puntos** para aprobar el juego. Si no llegas a esa puntuación, tendrás que repetir el juego.
+
+#### Instrucciones:
+
+1. En cada etapa, se te mostrarán **dos dominios**.
+2. Uno de ellos será el **correcto** (con una variante válida), y el otro será un **dominio incorrecto**.
+3. Debes elegir el dominio correcto. Si lo haces correctamente, ganarás puntos.
+4. Si fallas, recibirás un mensaje de "Suspenso" y deberás repetir la etapa.
+5. El juego tiene **10 niveles** con **10 etapas por nivel**. A medida que avanzas, el número de opciones disponibles no aumenta, pero el juego se vuelve más desafiante con la rapidez de las etapas.
+6. La **puntuación máxima es 100**.
+7. Si alcanzas **80 puntos o más**, serás aprobado y podrás continuar a la siguiente etapa.
+
+#### Objetivo:
+
+- **Superar el nivel 10** con al menos **80 puntos** para ser considerado aprobado.
+
+Puedes comenzar el juego [aquí](./phisingdomains.html), donde podrás interactuar con los dominios y hacer las pruebas necesarias.
+
+
 
 ### **5.4. Simulaciones y Labs**
 Los empleados participarán en simulaciones de ataques de ciberseguridad (como un intento de phishing o un ataque DDoS) para practicar su respuesta y mejorar sus habilidades de detección y contención.

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Seguridad de Contraseña</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #password-checker {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+        }
+        input {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        #strength {
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .progress-bar {
+            height: 20px;
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            width: 0%;
+            background-color: red;
+            transition: width 0.3s ease-in-out;
+            border-radius: 10px;
+        }
+        .good { background-color: orange; }
+        .strong { background-color: green; }
+        #suggestions {
+            margin-top: 10px;
+            color: #333;
+            font-size: 14px;
+            font-weight: normal;
+        }
+        .suggestion {
+            margin: 5px 0;
+            font-size: 13px;
+        }
+        #rockyou-warning {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="password-checker">
+    <h2>Verificador de Seguridad de Contraseña</h2>
+    <input type="password" id="password" placeholder="Introduce tu contraseña" oninput="checkPasswordStrength()">
+    <div id="strength">Fortaleza: </div>
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+    <div id="suggestions"></div>
+    <div id="rockyou-warning"></div>
+</div>
+
+<script>
+let rockyouList = [];
+
+function loadRockyouList() {
+    fetch('rockyou.txt')
+        .then(response => response.text())
+        .then(data => {
+            // Limpiamos el texto, eliminamos saltos de línea, los espacios intermedios y filtramos las cadenas vacías
+            rockyouList = data.split('\n')
+                .map(password => password.replace(/\s+/g, '').toLowerCase())  // Eliminar espacios y convertir a minúsculas
+                .filter(password => password !== '');  // Filtrar las cadenas vacías
+        })
+        .catch(error => {
+            console.error('Error al cargar rockyou.txt:', error);
+        });
+}
+
+
+function checkPasswordStrength() {
+    const password = document.getElementById("password").value;
+    const progress = document.getElementById("progress");
+    const strengthText = document.getElementById("strength");
+    const suggestions = document.getElementById("suggestions");
+    const rockyouWarning = document.getElementById("rockyou-warning");
+    let strength = 0;
+    let suggestionList = [];
+
+    // Convertir la contraseña a minúsculas para la comparación
+    const lowerCasePassword = password.toLowerCase().replace(/\s+/g, ''); // Eliminar espacios de la contraseña
+
+    // Comprobación de fuerza de la contraseña
+    if (password.length >= 12) strength += 20;
+    else suggestionList.push("Añade al menos 12 caracteres.");
+
+    if (/[A-Z]/.test(password)) strength += 20;
+    else suggestionList.push("Incluye al menos una letra mayúscula.");
+
+    if (/[a-z]/.test(password)) strength += 20;
+    else suggestionList.push("Incluye al menos una letra minúscula.");
+
+    if (/[0-9]/.test(password)) strength += 20;
+    else suggestionList.push("Añade al menos un número.");
+
+    if (/[\W_]/.test(password)) strength += 20;
+    else suggestionList.push("Incluye al menos un símbolo especial (ej. !@#$%).");
+
+    // Comprobación de si la contraseña está en rockyou.txt (sin importar mayúsculas/minúsculas)
+    if (rockyouList.includes(lowerCasePassword)) {
+        rockyouWarning.textContent = "¡Advertencia! Esta contraseña está en la lista de contraseñas más comunes (rockyou.txt).";
+    } else {
+        rockyouWarning.textContent = "";
+    }
+
+    // Actualizar la barra de progreso
+    progress.style.width = `${strength}%`;
+
+    // Actualizar el texto de la fortaleza de la contraseña
+    if (strength <= 40) {
+        progress.className = "progress";
+        strengthText.textContent = "Fortaleza: Débil";
+    } else if (strength <= 80) {
+        progress.className = "progress good";
+        strengthText.textContent = "Fortaleza: Buena";
+    } else {
+        progress.className = "progress strong";
+        strengthText.textContent = "Fortaleza: Fuerte";
+    }
+
+    // Mostrar sugerencias
+    if (suggestionList.length > 0) {
+        suggestions.innerHTML = "<b>Mejoras sugeridas:</b>";
+        suggestions.innerHTML += suggestionList.map(item => `<div class="suggestion">- ${item}</div>`).join('');
+    } else {
+        suggestions.innerHTML = "";
+    }
+}
+
+// Cargar rockyou.txt cuando se cargue la página
+loadRockyouList();
+</script>
+
+</body>
+</html>

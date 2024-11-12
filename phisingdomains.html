@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Dominios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+        #game {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #score {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="game">
+    <h2>Juego de Dominios</h2>
+    <div id="domain-prompt"></div>
+    <button id="button1" onclick="checkAnswer(1)"></button>
+    <button id="button2" onclick="checkAnswer(2)"></button>
+    <div id="score"></div>
+</div>
+
+<script>
+const glyphs_unicode = {
+    '2': ['ƻ'],
+    '3': ['ʒ'],
+    '5': ['ƽ'],
+    'a': ['ạ', 'ă', 'ȧ', 'ɑ', 'å', 'ą', 'â', 'ǎ', 'á', 'ə', 'ä', 'ã', 'ā', 'à'],
+    'b': ['ḃ', 'ḅ', 'ƅ', 'ʙ', 'ḇ', 'ɓ'],
+    'c': ['č', 'ᴄ', 'ċ', 'ç', 'ć', 'ĉ', 'ƈ'],
+    'd': ['ď', 'ḍ', 'ḋ', 'ɖ', 'ḏ', 'ɗ', 'ḓ', 'ḑ', 'đ'],
+    'e': ['ê', 'ẹ', 'ę', 'è', 'ḛ', 'ě', 'ɇ', 'ė', 'ĕ', 'é', 'ë', 'ē', 'ȩ'],
+    'f': ['ḟ', 'ƒ'],
+    'g': ['ǧ', 'ġ', 'ǵ', 'ğ', 'ɡ', 'ǥ', 'ĝ', 'ģ', 'ɢ'],
+    'h': ['ȟ', 'ḫ', 'ḩ', 'ḣ', 'ɦ', 'ḥ', 'ḧ', 'ħ', 'ẖ', 'ⱨ', 'ĥ'],
+    'i': ['ɩ', 'ǐ', 'í', 'ɪ', 'ỉ', 'ȋ', 'ɨ', 'ï', 'ī', 'ĩ', 'ị', 'î', 'ı', 'ĭ', 'į', 'ì'],
+    'j': ['ǰ', 'ĵ', 'ʝ', 'ɉ'],
+    'k': ['ĸ', 'ǩ', 'ⱪ', 'ḵ', 'ķ', 'ᴋ', 'ḳ'],
+    'l': ['ĺ', 'ł', 'ɫ', 'ļ', 'ľ'],
+    'm': ['ᴍ', 'ṁ', 'ḿ', 'ṃ', 'ɱ'],
+    'n': ['ņ', 'ǹ', 'ń', 'ň', 'ṅ', 'ṉ', 'ṇ', 'ꞑ', 'ñ', 'ŋ'],
+    'o': ['ö', 'ó', 'ȯ', 'ỏ', 'ô', 'ᴏ', 'ō', 'ò', 'ŏ', 'ơ', 'ő', 'õ', 'ọ', 'ø'],
+    'p': ['ṗ', 'ƿ', 'ƥ', 'ṕ'],
+    'q': ['ʠ'],
+    'r': ['ʀ', 'ȓ', 'ɍ', 'ɾ', 'ř', 'ṛ', 'ɽ', 'ȑ', 'ṙ', 'ŗ', 'ŕ', 'ɼ', 'ṟ'],
+    's': ['ṡ', 'ș', 'ŝ', 'ꜱ', 'ʂ', 'š', 'ś', 'ṣ', 'ş'],
+    't': ['ť', 'ƫ', 'ţ', 'ṭ', 'ṫ', 'ț', 'ŧ'],
+    'u': ['ᴜ', 'ų', 'ŭ', 'ū', 'ű', 'ǔ', 'ȕ', 'ư', 'ù', 'ů', 'ʉ', 'ú', 'ȗ', 'ü', 'û', 'ũ', 'ụ'],
+    'v': ['ᶌ', 'ṿ', 'ᴠ', 'ⱴ', 'ⱱ', 'ṽ'],
+    'w': ['ᴡ', 'ẇ', 'ẅ', 'ẃ', 'ẘ', 'ẉ', 'ⱳ', 'ŵ', 'ẁ'],
+    'x': ['ẋ', 'ẍ'],
+    'y': ['ŷ', 'ÿ', 'ʏ', 'ẏ', 'ɏ', 'ƴ', 'ȳ', 'ý', 'ỿ', 'ỵ'],
+    'z': ['ž', 'ƶ', 'ẓ', 'ẕ', 'ⱬ', 'ᴢ', 'ż', 'ź', 'ʐ'],
+};
+
+let domains = [];
+let score = 0;
+let currentRound = 0;
+let currentLevel = 1;
+
+// Cargar los dominios desde el archivo
+fetch('domains.txt')
+    .then(response => response.text())
+    .then(data => {
+        const lines = data.split('\n');
+        domains = lines.map(line => line.trim());
+        startGame();
+    })
+    .catch(error => console.error('Error al cargar el archivo:', error));
+
+function startGame() {
+    score = 0;
+    currentRound = 0;
+    currentLevel = 1;
+    nextRound();
+}
+
+function nextRound() {
+    if (currentRound < domains.length && currentLevel <= 10) {
+        const correctDomain = domains[currentRound];
+        const modifiedDomain = modifyDomain(correctDomain);
+        const answers = [correctDomain, modifiedDomain];
+
+        // Mezclar las respuestas
+        shuffleArray(answers);
+
+        document.getElementById('domain-prompt').innerText = `¿Cuál es el dominio correcto?`;
+        document.getElementById('button1').innerText = answers[0];
+        document.getElementById('button2').innerText = answers[1];
+    } else {
+        endGame();
+    }
+}
+
+function modifyDomain(domain) {
+    return domain.split('').map(char => {
+        const lowerChar = char.toLowerCase();
+        if (glyphs_unicode[lowerChar]) {
+            const glyphs = glyphs_unicode[lowerChar];
+            return glyphs[Math.floor(Math.random() * glyphs.length)];
+        }
+        return char; // Si no hay modificación, devolver el carácter original
+    }).join('');
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+function checkAnswer(selected) {
+    const correctDomain = domains[currentRound];
+    const isCorrectAnswer = selected === 1 ? document.getElementById('button1').innerText : document.getElementById('button2').innerText;
+
+    if (isCorrectAnswer === correctDomain) {
+        score++;
+    }
+
+    currentRound++;
+
+    // Incrementar el nivel cada 10 rondas
+    if (currentRound % 10 === 0) {
+        currentLevel++;
+    }
+
+    nextRound();
+    updateScore();
+}
+
+function updateScore() {
+    document.getElementById('score').innerText = `Puntuación: ${score} | Nivel: ${currentLevel}`;
+}
+
+function endGame() {
+    const minScore = 80; // Puntuación mínima
+    if (score >= minScore) {
+        alert('¡Felicidades! Has ganado con una puntuación de ' + score);
+    } else {
+        alert('Lo siento, has perdido. Tu puntuación es ' + score + '. Tienes que repetir el juego.');
+    }
+    startGame(); // Reiniciar el juego
+}
+</script>
+
+</body>
+</html>
